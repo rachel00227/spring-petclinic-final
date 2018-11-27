@@ -1,0 +1,12 @@
+---
+applications:
+- name: spring-petclinic
+  path: target\spring-petclinic-1.5.1.jar
+  buildpack: java_buildpack
+  memory: 1G
+  instances: 1
+  random-route: true
+  spring:
+   datasource:
+    initialize: true
+    url: ${vcap.services.mysql-petclinic.credentials.jdbcUrl}
